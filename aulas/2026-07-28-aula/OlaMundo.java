@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class OlaMundo {
     void main(){
 
-        // Todo Faça um programa pra ler idade e sexo de uma pessoa e informe se ela precisa apresentar o atestado de reservista
+        // Faça um programa pra ler idade e sexo de uma pessoa e informe se ela precisa apresentar o atestado de reservista!
         
         System.out.println();
         IO.println("Programa para verificar se precisa de atestado de reservista");
