@@ -10,5 +10,6 @@
 ## Aulas
 
 - [2026-07-22 - Aula sobre Git e Markdown](aulas/2026-07-22-aula)
+- [2026-07-29 - Aula sobre Introdução ao Java](aulas/2026-07-28-aula)
 
 ## Laboratórios
