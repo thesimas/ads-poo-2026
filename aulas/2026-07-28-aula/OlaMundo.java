@@ -12,12 +12,15 @@ public class OlaMundo {
 
         int idade = Integer.parseInt(IO.readln("Entre com sua Idade: "));
 
-        char sexo = IO.readln("Me informe o seu Sexo, F para feminino ou M para masculino: ").toUpperCase().charAt(0);
+        char sexo = IO.readln("Me informe o seu Sexo, F para FEMININO ou M para MASCULINO: ").toUpperCase().charAt(0);
 
-        if(sexo == 'M' && idade >= 18){
-            System.out.println("Olá " + nome + " você tem " + idade + " e precisa apresentar o atestado de reservista");
-        }else{
-            System.out.println("Você não precisa informar o atestado de reservista");
+        if(sexo == 'M' && idade > 17){
+            System.out.println("Olá " + nome + ", você tem " + idade + " anos e precisa apresentar o atestado de reservista!");
+        }else if(sexo == 'M'){
+            System.out.println("Olá " + nome + ", você tem " + idade + " anos e não tem idade suficiente para apresentar o atestado de reservista!");
+        }
+        else{
+            System.out.println("Olá " + nome + ", você tem " + idade + " anos e você não precisa informar o atestado de reservista!");
         }
 
     }
