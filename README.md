@@ -10,6 +10,7 @@
 ## Aulas
 
 - [2026-07-22 - Aula sobre Git e Markdown](aulas/2026-07-22-aula)
-- [2026-07-29 - Aula sobre Introdução ao Java](aulas/2026-07-28-aula)
+- [2026-07-28 - Aula de Revisão de Lógica de programação com Java](aulas/2026-07-28-aula)
+- [2026-07-29 - Continuação da revisão de Lógica de programação com Java](aulas/2026-07-29-aula)
 
 ## Laboratórios
