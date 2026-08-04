@@ -30,9 +30,15 @@ public class MediaComMatriz {
 
         System.out.println("\nAs médias foram: ");
         for(int x = 0; x < notas.length; x ++){
-            for(int j = 2; j < 3; j ++){
-                System.out.println(String.format("Média %d: %.2f", (x+1), notas[x][j]));
+            System.out.println(String.format("Média %d: %.2f", (x+1), notas[x][2]));
+        }
+        double soma = 0;
+        for(int x = 0; x < notas.length; x ++){
+            for(int j = 0; j < notas[x].length - 1; j ++){
+                soma += notas[x][j];
             }
+            System.out.println("\nA média da "+ (x+1) + "ª Avaliação foi: " + String.format("%2d", Math.round(soma / 3)));
+            soma = 0;
         }
 
         leia.close();
