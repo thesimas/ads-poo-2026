@@ -1,9 +1,10 @@
 public class Saudacao {
     public static void main(String[] args) {
 
-        double soma = 0;
-
         if(args.length >= 2){
+
+            double soma = 0;
+
             for(int x = 0; x < args.length; x ++){
                 soma += Double.parseDouble(args[x]);
             }
@@ -15,6 +16,8 @@ public class Saudacao {
             }else{
                 System.out.println("Você está reprovado!");
             }
+
+
 
         }else{
             System.out.println("Error: Informe ao menos duas notas!");
