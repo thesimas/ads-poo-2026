@@ -5,10 +5,24 @@ public class Leitor {
         
         Scanner leia = new Scanner(System.in);
 
-        do{
+        while (leia.hasNext()) {
+
             String linha = leia.nextLine();
-            System.out.println("Sáida: " + linha);
-        }while(leia.hasNext());
+
+            String[] campos = linha.split(",");
+
+            System.out.println("\nAluno: " + campos[0]);
+
+            Double soma = Double.parseDouble(campos[1]);
+            soma += Double.parseDouble(campos[2]);
+
+            if(Math.round(soma / 2) > 5){
+                System.out.print(" Aprovado!");
+            }else{
+                System.out.print(" Reprovado!");
+            }
+            System.out.println();
+        }
 
         leia.close();
     }

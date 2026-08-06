@@ -1,4 +1,4 @@
-Aula
-POO
-05/08/2026
-ADS 2ª Fase - IFSC Campus São José
+Juca,5.5,10
+Ana,7,9
+Luciano,10,8
+Roberto,2.9,5.6
