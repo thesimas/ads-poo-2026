@@ -13,5 +13,6 @@
 - [2026-07-28 - Aula de Revisão de Lógica de programação com Java](aulas/2026-07-28-aula)
 - [2026-07-29 - Continuação da revisão de Lógica de programação com Java](aulas/2026-07-29-aula)
 - [2026-08-04 - Continuação de revisão de Lógica de programação com Java](aulas/2026-08-04-aula)
+- [2026-08-05 - Alguns exercícios de Lógica e Primeiro Projeto Java com Gradle](aulas/2026-08-05-aula)
 
 ## Laboratórios
