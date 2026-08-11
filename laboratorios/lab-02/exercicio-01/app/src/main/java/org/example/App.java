@@ -3,12 +3,85 @@
  */
 package org.example;
 
+import java.lang.classfile.instruction.SwitchCase;
+import java.util.Scanner;
+
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+//    public String getGreeting() {
+//        return "Hello World!";
+//    }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+
+        //System.out.println(new App().getGreeting());
+
+        /*
+        * Estação do ano. Faça um programa que leia do teclado um número inteiro que representa o dia, e
+        uma string que representa o mês. Por fim, imprima na tela a estação do ano correspondente aqui no
+        Brasil.
+        *
+        * */
+
+
+        System.out.println();
+
+        Scanner leia = new Scanner(System.in);
+        System.out.println("Me informe um número inteiro que represente o dia: ");
+        int dia = leia.nextInt();
+        leia.nextLine();
+        System.out.println("Me informe uma string que represente o mês: ");
+        String mes = leia.nextLine().toLowerCase();
+
+        System.out.println();
+        switch (mes) {
+            case "janeiro", "fevereiro" , "março":
+                if(mes.equals("março")){
+                    if(dia < 20){
+                        System.out.println("Estação Atual: Verão");
+                    }else {
+                        System.out.println("Estação Atual: Outono");
+                    }
+                    break;
+                }
+                System.out.println("Estação Atual: Verão");
+                break;
+            case "abril", "maio", "junho":
+                if(mes.equals("junho")){
+                    if(dia < 21){
+                        System.out.println("Estação Atual: Outono");
+                    }else {
+                        System.out.println("Estação Atual: Inverno");
+                    }
+                    break;
+                }
+                System.out.println("Estação Atual: Outono");
+                break;
+
+            case "julho", "agosto", "setembro":
+                if(mes.equals("setembro")){
+                    if(dia < 22){
+                        System.out.println("Estação Atual: Inverno");
+                    }else {
+                        System.out.println("Estação Atual: Primavera");
+                    }
+                    break;
+                }
+                System.out.println("Estação Atual: Inverno");
+                break;
+            default:
+                if(mes.equals("dezembro")){
+                    if(dia < 21){
+                        System.out.println("Estação Atual: Primavera");
+                    }else {
+                        System.out.println("Estação Atual: Verão");
+                    }
+                    break;
+                }
+                System.out.println("Estação Atual: Verão");
+                break;
+        }
+        System.out.println("\n\nFim do programa...\n");
+        leia.close();
+
     }
 }
