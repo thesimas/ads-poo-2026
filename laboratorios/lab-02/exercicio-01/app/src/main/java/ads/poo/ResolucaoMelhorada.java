@@ -1,4 +1,4 @@
-package org.example;
+package ads.poo;
 
 import java.util.Scanner;
 
