@@ -3,12 +3,38 @@
  */
 package ads.poo;
 
+import java.util.Random;
+import java.util.Scanner;
+
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        Scanner leia = new Scanner(System.in);
+        Random gerador = new Random();
+        int numeroSorteado = gerador.nextInt(1, 100);
+
+        System.out.println("Bem-vindo ao Jogo de Adivinhação - Acerte o número de 1 a 100!");
+
+        int tentativas = 0;
+
+        while (true){
+            System.out.print("Dê o seu " + (tentativas+1) + "º palpite: ");
+            int palpite = leia.nextInt();
+            tentativas ++;
+            if(verificador(palpite, numeroSorteado)){
+                break;
+            }
+        }
+        System.out.println("Você precisou de " + tentativas + " tentativas, para acertar o número aleatório!");
+    }
+
+    private static boolean verificador (int palpite, int numeroSorteado){
+        if(palpite > numeroSorteado || palpite < numeroSorteado){
+            String mensagem = (palpite > numeroSorteado) ? "Palpite muito alto" : "Palpite muito baixo";
+            System.out.println("\n" + mensagem + ", tente Novamente!\n");
+            return false;
+        }
+        System.out.println("\nParabéns, você Acertou!!!\n");
+        return true;
     }
 }
