@@ -15,23 +15,23 @@ public class ResolucaoMelhorada {
         String mes = leia.nextLine().toLowerCase();
         String mensagem = "";
 
-        System.out.println();
+        System.out.print("\nEstação Atual: ");
 
         switch (mes) {
             case "janeiro", "fevereiro" , "março":
-                mensagem = ((dia < 20) && mes.equals("março")) ? "Estação Atual: Verão" : "Estação Atual: Outono";
+                mensagem = ((dia < 20) && mes.equals("março")) ? " Verão" : " Outono";
                 System.out.println(mensagem);
                 break;
             case "abril", "maio", "junho":
-                mensagem = ((dia < 21) && mes.equals("junho")) ? "Estação Atual: Outono" : "Estação Atual: Inverno";
+                mensagem = ((dia < 21) && mes.equals("junho")) ? " Outono" : " Inverno";
                 System.out.println(mensagem);
                 break;
             case "julho", "agosto", "setembro":
-                mensagem = ((dia < 22) && mes.equals("setembro")) ? "Estação Atual: Inverno" : "Estação Atual: Primavera";
+                mensagem = ((dia < 22) && mes.equals("setembro")) ? " Inverno" : " Primavera";
                 System.out.println(mensagem);
                 break;
             default:
-                mensagem = ((dia < 21) && mes.equals("dezembro")) ? "Estação Atual: Primavera" : "Estação Atual: Verão";
+                mensagem = ((dia < 21) && mes.equals("dezembro")) ? " Primavera" : " Verão";
                 System.out.println(mensagem);
                 break;
         }
