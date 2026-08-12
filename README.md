@@ -19,3 +19,12 @@
 - [2026-08-05 - Continuação da Revisão, Argumentos por linha de comando e Primeiro Projeto Java com Gradle](aulas/2026-08-05-aula)
 
 ## Laboratórios
+
+- [2026-08-11 - Laboratório 01 - Revisão da Linguagem Java](laboratorios/lab-02)
+    - Exercício 1 - Estação do Ano 
+        - [Primeira Resolução](laboratorios/lab-02/exercicio-01/app/src/main/java/ads/poo/App.java) 
+        - [Segunda Resolução - Com operador Ternário](laboratorios/lab-02/exercicio-01/app/src/main/java/ads/poo/ResolucaoMelhorada.java)
+
+    - Exercício 2 - Acerte o número
+        
+    - Exercício 3 - ASCII ART
