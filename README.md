@@ -22,9 +22,10 @@
 
 - [2026-08-11 - Laboratório 01 - Revisão da Linguagem Java](laboratorios/lab-02)
     - Exercício 1 - Estação do Ano 
-        - [Primeira Resolução](laboratorios/lab-02/exercicio-01/app/src/main/java/ads/poo/App.java) 
-        - [Segunda Resolução - Com operador Ternário](laboratorios/lab-02/exercicio-01/app/src/main/java/ads/poo/ResolucaoMelhorada.java)
+        - [Resolução](laboratorios/lab-02/exercicio-01/app/src/main/java/ads/poo/App.java) 
+        - [Resolução - Com operador Ternário](laboratorios/lab-02/exercicio-01/app/src/main/java/ads/poo/ResolucaoMelhorada.java)
 
     - Exercício 2 - Acerte o número
+        - [Resolução](laboratorios/lab-02/exercicio-02/app/src/main/java/ads/poo/App.java)
         
     - Exercício 3 - ASCII ART
