@@ -34,7 +34,7 @@ public class App {
                 }
             }else {
                 int altura = Integer.parseInt(args[2]);
-                String[][] matriz = new String[largura][altura];
+                String[][] matriz = new String[altura][largura];
                 System.out.print("Retângulo\n\n");
                 retangulo(matriz, desenho);
             }
@@ -66,10 +66,20 @@ public class App {
 
     private static void retangulo(String[][] matriz, String desenho){
         for (int linha = 0; linha < matriz.length; linha ++){
-            for (int coluna = 0; coluna < linha; coluna++){
-                System.out.print(desenho.repeat(coluna+1));
+            for (int coluna = 0; coluna < matriz.length; coluna++){
+                if(linha == 0 || linha == matriz.length -1){
+                    System.out.print(desenho.repeat(matriz.length));
+                    break;
+                }else {
+                    if(coluna == 1 || coluna == matriz.length -1){
+                        System.out.print(" ".repeat(matriz.length -2));
+                        System.out.print(desenho);
+                        break;
+                    }
+                    System.out.print(desenho);
+                }
             }
-            System.out.println(desenho.repeat(linha+1));
+            System.out.println();
         }
     }
 }
