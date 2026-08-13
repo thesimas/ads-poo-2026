@@ -23,8 +23,8 @@
 - [2026-08-11 - Laboratório 02 - Revisão da Linguagem Java](laboratorios/lab-02)
     - Exercício 1 - Estação do Ano 
         - [Explicação do Problema](laboratorios/lab-02/exercicio-01/README.md)
-        - [Resolução](laboratorios/lab-02/exercicio-01/app/src/main/java/ads/poo/App.java) 
-        - [Resolução - Com operador Ternário](laboratorios/lab-02/exercicio-01/app/src/main/java/ads/poo/ResolucaoMelhorada.java)
+        - [Solução](laboratorios/lab-02/exercicio-01/app/src/main/java/ads/poo/App.java) 
+        - [Solução - Com operador Ternário](laboratorios/lab-02/exercicio-01/app/src/main/java/ads/poo/ResolucaoMelhorada.java)
 
     - Exercício 2 - Acerte o número
         - [Explicação do Problema](laboratorios/lab-02/exercicio-02/README.md)
