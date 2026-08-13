@@ -3,12 +3,37 @@
  */
 package ads.poo;
 
+import java.util.Random;
+
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        Random numero1 = new Random();
+        Random numero2 = new Random();
+        String[][] matriz = new String[9][9];
+
+        // Sempre devo inicializar ela primeiro com os valores padrões.
+        for(int y = 0; y < matriz.length; y ++){
+            for (int x = 0; x < matriz.length; x ++){
+                matriz[y][x] = ".";
+            }
+        }
+
+        // Depois insiro os valores aleatorios com o asteristico;
+        int contador = 0;
+        while (contador < 10){
+            int numeroLinha = numero1.nextInt(9);
+            int numeroColuna = numero2.nextInt(9);
+            matriz[numeroLinha][numeroColuna] = "*";
+            contador ++;
+        }
+
+        // E depois imprime ela.
+        for(int y = 0; y < matriz.length; y ++){
+            for (int x = 0; x < matriz.length; x ++){
+                System.out.print(matriz[y][x]);
+            }
+            System.out.println();
+        }
     }
 }
