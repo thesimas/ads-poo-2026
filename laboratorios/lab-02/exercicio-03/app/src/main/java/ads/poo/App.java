@@ -6,7 +6,70 @@ package ads.poo;
 public class App {
 
     public static void main(String[] args) {
+        // Primeiro Argumento = Tipo da figura
+        // Segundo Argumento = Largura
+        // Terceiro Argumento = Altura
 
+        System.out.println("\nPrograma iniciado!");
 
+        if(args[1].isEmpty()){
+            System.out.println("Error! Deverá informar ao menos um argumento numérico além do desenho.");
+        }else {
+            String desenho = "*";
+            int largura = Integer.parseInt(args[1]);
+            System.out.print("\nVocê selecionou: ");
+            if(args.length == 2){
+                String[][] matriz = new String[largura][largura];
+                switch (args[0].toLowerCase()) {
+                    case "losango":
+                        System.out.print("Losango\n\n");
+                        losango(matriz, desenho);
+                        break;
+                    case "triangulo":
+                        System.out.print("Triângulo\n\n");
+                        triangulo(matriz, desenho);
+                        break;
+                    default:
+                        System.out.println("Error!\nAs opções de Desenho são: Triângulo, Losango e Retângulo!");
+                }
+            }else {
+                int altura = Integer.parseInt(args[2]);
+                String[][] matriz = new String[largura][altura];
+                System.out.print("Retângulo\n\n");
+                retangulo(matriz, desenho);
+            }
+            System.out.println("\nFim do programa...");
+        }
+    }
+
+    private static void losango(String[][] matriz, String desenho){
+        for (int linha = 0; linha < matriz.length; linha ++){
+            for (int coluna = 0; coluna < linha; coluna++){
+                System.out.print(desenho.repeat(coluna));
+            }
+            if(linha == 0){
+                System.out.println(desenho);
+            }else {
+                System.out.println();
+            }
+        }
+    }
+
+    private static void triangulo(String[][] matriz, String desenho){
+        for (int linha = 0; linha < matriz.length; linha ++){
+            for (int coluna = 0; coluna <= linha; coluna++){
+                System.out.print(desenho);
+            }
+            System.out.println();
+        }
+    }
+
+    private static void retangulo(String[][] matriz, String desenho){
+        for (int linha = 0; linha < matriz.length; linha ++){
+            for (int coluna = 0; coluna < linha; coluna++){
+                System.out.print(desenho.repeat(coluna+1));
+            }
+            System.out.println(desenho.repeat(linha+1));
+        }
     }
 }
