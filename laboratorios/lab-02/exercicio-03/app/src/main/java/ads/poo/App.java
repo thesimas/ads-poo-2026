@@ -43,14 +43,15 @@ public class App {
     }
 
     private static void losango(String[][] matriz, String desenho){
+        int quantidadeDesenho = 1;
         for (int linha = 0; linha < matriz.length; linha ++){
-            for (int coluna = 0; coluna < linha; coluna++){
-                System.out.print(desenho.repeat(coluna));
-            }
-            if(linha == 0){
-                System.out.println(desenho);
+            int espaco = (matriz.length - quantidadeDesenho) / 2;
+            System.out.println(" ".repeat(espaco) + desenho.repeat(quantidadeDesenho) + " ".repeat(espaco));
+
+            if(linha >= matriz.length / 2){
+                quantidadeDesenho -=2;
             }else {
-                System.out.println();
+                quantidadeDesenho +=2;
             }
         }
     }
