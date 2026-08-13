@@ -9,3 +9,5 @@ inválidos, o programa deve informar a forma correta de uso.
 >>>>**Exemplos de uso:**
 
 ![exemploDeUso.png](exemploDeUso.png)
+
+**Solução:** [Exercício 3](app/src/main/java/ads/poo/App.java)
