@@ -38,3 +38,4 @@
         - [Solução](laboratorios/lab-02/exercicio-04/app/src/main/java/ads/poo/App.java)
     - Exercício 5 - Leitura de Arquivo do Exercício anterior
         - [Explicação do Problema](laboratorios/lab-02/exercicio-05/README.md)
+        - [Solução](laboratorios/lab-02/exercicio-05/app/src/main/java/ads/poo/App.java)
