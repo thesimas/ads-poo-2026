@@ -15,6 +15,6 @@ public class App {
         Carro gol = new Carro("Gol");
         gol.acelerar(50);
         System.out.println("O " + gol.getModelo() +  " está na velocidade " + fusca.getVelocidadeAtual() + " KM/h");
-        
+
     }
 }
