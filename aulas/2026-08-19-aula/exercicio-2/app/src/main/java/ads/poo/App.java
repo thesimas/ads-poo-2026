@@ -4,11 +4,17 @@
 package ads.poo;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        Personagem mago = new Personagem("Zeus", Classe.MAGO, 10);
+        Personagem guerreiro = new Personagem("Kratos", Classe.GUERREIRO, 10);
+
+        StringBuilder sb = new StringBuilder();
+
+        System.out.println(guerreiro.atacar(mago));
+        System.out.println(guerreiro.toString());
+        System.out.println(mago.toString());
+        System.out.println(guerreiro.descansar());
+        System.out.println(guerreiro.toString());
     }
 }
