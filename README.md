@@ -18,6 +18,8 @@
 - [2026-08-04 - Continuação de revisão - Vetores e Matrizes](aulas/2026-08-04-aula)
 - [2026-08-05 - Continuação da Revisão, Argumentos por linha de comando e Primeiro Projeto Java com Gradle](aulas/2026-08-05-aula)
 - [2026-08-18 - Introdução ao POO - Criação de Classe](aulas/2026-08-18-aula)
+- [2026-08-19 - Criança de Classes e instanciação de Objetos](aulas/2026-08-19-aula)
+
 ## Laboratórios
 
 - [2026-08-11 - **Laboratório 02** - Revisão da Linguagem Java com 5 exercícios](laboratorios/lab-02)
