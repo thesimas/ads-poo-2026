@@ -4,11 +4,22 @@
 package ads.poo;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        Batedeira batedeira1 = new Batedeira(Cores.AMARELA, Voltagem.V220);
+        Batedeira batedeira2 = new Batedeira(Cores.AZUL, Voltagem.V110);
+
+        batedeira1.toString();
+        batedeira1.colocarGancho(TipoDeGancho.REFORCADO);
+        batedeira1.ligar();
+        batedeira1.definirVelocidade(20);
+        batedeira1.toString();
+
+        // Simulando erros
+        System.out.println(batedeira2.toString());
+        batedeira2.toString();
+        batedeira2.ligar();
+        batedeira2.colocarGancho(TipoDeGancho.RIGIDO);
+        batedeira2.toString();
     }
 }
