@@ -1,0 +1,15 @@
+1º Objeto - Garrafa 
+	- Atributos: tampa, material
+	- 1º Método - Abrir
+	- 2º Método - Fechar
+
+2º Objeto - Carregador
+	- Atributos: Enum entrada, cor
+	- 1º Método - Colocar na tomada
+	- 2º Método - Retirar da tomada
+
+- Classe Carro - Sistema de revenda de Carros:
+	- Atributos: cor, Modelo, valor;
+	
+- Classe Carro - Jogo de Formula 1:
+	- Atributos: aceleracao, poderFrenagem, tipoMotor;
