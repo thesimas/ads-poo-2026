@@ -4,11 +4,18 @@
 package ads.poo;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        Aluno aluno1 = new Aluno("João", 24, "Análise e Desenvolvimento de Sistemas");
+        Aluno aluno2 = new Aluno("Pedro", 21, "Ciência da Computação");
+        Aluno aluno3 = new Aluno("Gabriel", 23, "Análise e Desenvolvimento de Sistemas");
+        Disciplina disciplina = new Disciplina("001", "Algoritmos", 80, 4);
+        Professor professor = new Professor("Marcos", 54);
+        disciplina.vincularProfessor(professor);
+        disciplina.matricularAluno(aluno1);
+        disciplina.matricularAluno(aluno2);
+        disciplina.matricularAluno(aluno3);
+        System.out.println(disciplina.listarAlunos());
+
     }
 }
