@@ -4,11 +4,13 @@
 package ads.poo;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        Horario horario1 = new Horario();
+        System.out.println(horario1.toString());
+        Horario horario2 = new Horario(17, 23, 45);
+        System.out.println(horario2.horarioPorExtenso());
+        System.out.println(horario2.paraSegundos());
+
     }
 }
