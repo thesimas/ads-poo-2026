@@ -4,7 +4,6 @@ public class Horario {
     private int hora;
     private int minutos;
     private int segundos;
-    private StringBuilder formatador = new StringBuilder();
 
     public Horario(int hora, int minutos, int segundos) {
         this.hora = hora;
@@ -41,87 +40,30 @@ public class Horario {
     }
 
     public StringBuilder horarioPorExtenso(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(descobreNumero(this.hora)).append(" horas e ");
+        sb.append(descobreNumero(this.minutos)).append(" minutos e ");
+        sb.append(descobreNumero(this.segundos)).append(" segundos.");
 
-        String hora = String.valueOf(this.hora);
-        String minutos = String.valueOf(this.minutos);
-        String segundos = String.valueOf(this.segundos);
-
-        this.formatador.append(descobreNumero(hora));
-        this.formatador.append(" horas, ");
-        this.formatador.append(descobreNumero(minutos));
-        this.formatador.append(" minutos, ");
-        this.formatador.append(descobreNumero(segundos));
-        this.formatador.append(" segundos");
-
-        return this.formatador;
+        return sb;
     }
 
-    private StringBuilder descobreNumero (String string){
-        String[] vetorUnidade = {"Um", "Dois", "Três", "Quatro", "Cinco", "Seis", "Sete", "Oito", "Nove"};
-        String[] vetorDezena = {"Dez", "Vinte", "Trinta", "Quarenta", "Cinquenta", "Sessenta"};
+    private String descobreNumero (int numero){
+        String[] unidades = {"um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove", "Dez", "Onze", "Doze", "Treze", "Quartorze", "Quinze", "Dezesseis", "Dezessete", "Dezoito", "Dezenove"};
+        String[] dezenas = {"Vinte", "Trinta", "Quarenta", "Cinquenta"};
 
-        for(int y = 0; y < 2; y ++){
-            this.formatador.append(verifica(vetorUnidade, vetorDezena, y, string));
-            this.formatador.append(" e ");
+        if(numero < 20){
+            return unidades[(numero-1)];
         }
+        int dezena = numero / 10;
+        int unidade = numero % 10;
+        if(unidade == 0){
+            return dezenas[dezena-2];
+        }
+        return dezenas[(dezena-2)] + " e "  + unidades[(unidade-1)];
 
-        return this.formatador;
     }
 
-    private String verifica(String[] vetorUnidade, String[] vetorDezena, int posicao, String string){
-
-        if(verificaCaractere(string)){
-            return vetorDezena[0];
-        }
-
-        //Faltou verificar o dez + segunda casa
-        if(!(string.charAt(posicao) > 6)){
-            switch (string.charAt(posicao)){
-                case 1:
-                    return vetorDezena[0];
-                case 2:
-                    return vetorDezena[1];
-                case 3:
-                    return vetorDezena[2];
-                case 4:
-                    return vetorDezena[3];
-                case 5:
-                    return vetorDezena[4];
-                case 6:
-                    return vetorDezena[5];
-            }
-        }else {
-            switch (string.charAt(posicao)){
-                case 1:
-                    return vetorUnidade[0];
-                case 2:
-                    return vetorUnidade[1];
-                case 3:
-                    return vetorUnidade[2];
-                case 4:
-                    return vetorUnidade[3];
-                case 5:
-                    return vetorUnidade[4];
-                case 6:
-                    return vetorUnidade[5];
-                case 7:
-                    return vetorUnidade[6];
-                case 8:
-                    return vetorUnidade[7];
-                case 9:
-                    return vetorUnidade[8];
-            }
-        }
-
-        return null;
-    }
-
-    private boolean verificaCaractere(String string){
-        if(string.charAt(1) == 0){
-            return true;
-        }
-        return false;
-    }
 
     public long paraSegundos(){
         return this.hora * 3600L + this.minutos * 60L + this.segundos;
