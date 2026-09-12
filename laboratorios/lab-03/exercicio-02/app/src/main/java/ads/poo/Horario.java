@@ -64,6 +64,10 @@ public class Horario {
 
     }
 
+    public String diferencaEntreDoisHorarios(Horario horario){
+        long diferenca = this.paraSegundos() - horario.paraSegundos();
+        return "A diferença entre o horário "  + this.toString() + " e o " + horario.toString() + " em segundos é " + diferenca;
+    }
 
     public long paraSegundos(){
         return this.hora * 3600L + this.minutos * 60L + this.segundos;
@@ -108,10 +112,9 @@ public class Horario {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Horario: ");
-        sb.append(hora);
-        sb.append(":").append(minutos);
-        sb.append(":").append(segundos);
-        return sb.toString();
+        String hora = this.hora < 10 ? this.hora + "0:" : this.hora + ":";
+        String minutos = this.minutos < 10 ? this.minutos + "0:" : this.minutos + ":";
+        String segundos = this.segundos < 10 ? this.segundos + "0" : this.segundos + "";
+        return hora + minutos + segundos;
     }
 }

@@ -8,9 +8,13 @@ public class App {
     public static void main(String[] args) {
         Horario horario1 = new Horario();
         System.out.println(horario1.toString());
-        Horario horario2 = new Horario(17, 33, 40);
+        horario1.setHora(10);
+        horario1.setMinutos(32);
+        horario1.setSegundos(15);
+        Horario horario2 = new Horario(23, 59, 59);
+        System.out.println(horario2.toString());
         System.out.println(horario2.horarioPorExtenso());
-        System.out.println(horario2.paraSegundos());
-
+        System.out.println("Horário convertido em segundos: " + horario2.paraSegundos());
+        System.out.println(horario2.diferencaEntreDoisHorarios(horario1));
     }
 }
