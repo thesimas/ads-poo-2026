@@ -22,4 +22,5 @@
 
 ## Laboratórios
 
-- [2026-08-11 - **Laboratório 02** - Revisão da Linguagem Java com 5 exercícios](laboratorios/lab-02)
+- [2026-08-11 - **Laboratório 02** - Revisão da Linguagem Java](laboratorios/lab-02/README.md)
+- [2026-09-01 - **Laboratório 03** - Prática com construtor, modificadores, sobrecarga, membros estáticos e finais](laboratorios/lab-03/README.md)
