@@ -4,11 +4,12 @@
 package ads.poo;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+
+        Retangulo retangulo = new Retangulo(5, 6, "ascii");
+        System.out.println("Área do retângulo: " + retangulo.getArea());
+        System.out.println("Perimetro do retângulo: " + retangulo.getPerimetro());
+        System.out.println(retangulo.toString());
     }
 }
