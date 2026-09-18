@@ -1,7 +1,6 @@
 package ads.poo;
 
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class App {
@@ -40,7 +39,7 @@ public class App {
                     System.out.println("Saindo...");
                     break;
                 default:
-                    System.out.println("Opção inválida, escolha um número de 0 a 4!");
+                    System.out.println("Opção inválida, escolha um número de 0 a 7!");
             }
         }while (opcao != 0);
     }
@@ -67,7 +66,7 @@ public class App {
         System.out.println("Qual é o ISBN do livro?");
         String isbn = leitor.nextLine();
         while (this.livros.containsKey(isbn)){
-            System.out.println("Já tem um livro com esse ISBN, informe novamente!");
+            System.out.println("Já tem um livro cadastrado com esse ISBN, informe novamente!");
             isbn = leitor.nextLine();
         }
         System.out.println("Qual é o titulo do livro?");
@@ -92,7 +91,7 @@ public class App {
         System.out.println("Qual é o ISBN do livro que deseja consultar?");
         String isbn = leitor.nextLine();
         if(!this.livros.containsKey(isbn)){
-            System.out.println("Esse ISBN não existe!");
+            System.out.println("Esse ISBN não está cadastrado!");
         }else {
             System.out.println(this.livros.get(isbn).toString());
         }
@@ -103,32 +102,32 @@ public class App {
         System.out.println("Qual é o Autor do livro que deseja consultar?");
         String autor = leitor.nextLine();
 
-        for (Map.Entry<String, Livro> entry : this.livros.entrySet()) {
-            String chave = entry.getKey();
-            Livro valor = entry.getValue();
-            if (valor.getAutor().equals(autor)) {
+        for (Livro livro : this.livros.values()) {
+            if (livro.getAutor().equals(autor)) {
                 flag = true;
-                System.out.println("ISBN: " + chave + " - Titulo: " + valor.getTitulo());
+                System.out.println("ISBN: " + livro.getIsbn() + " - Titulo: " + livro.getTitulo());
             }
         }
 
         if(!flag){
-            System.out.println("Não há livros com esse autor!");
+            System.out.println("Não há livros cadastrado com esse autor!");
         }
     }
 
     private void consultarPorAno(){
+        boolean flag = false;
         System.out.println("Qual é o Ano do livro que deseja consultar?");
         int ano = leitor.nextInt();
         leitor.nextLine();
-        if (this.livros.containsValue(ano)) {
-            this.livros.forEach((chave, valor) -> {
-                if(valor.getAnoPublicacao() == ano){
-                    System.out.println("ISBN: " + chave + " - Titulo: " + valor.getTitulo());
-                }
-            });
-        } else {
-            System.out.println("Não existe nenhum livro cadastrado com esse ano!");
+        for (Livro livro : this.livros.values()) {
+            if (livro.getAnoPublicacao() == ano) {
+                flag = true;
+                System.out.println("ISBN: " + livro.getIsbn() + " - Titulo: " + livro.getTitulo());
+            }
+        }
+
+        if(!flag){
+            System.out.println("Não há livros cadastrado com esse ano!");
         }
     }
 
@@ -186,7 +185,7 @@ public class App {
             this.livros.remove(isbn);
             System.out.println("Livro removido com sucesso!");
         }else {
-            System.out.println("Não há livro com esse ISBN!");
+            System.out.println("Não há livro cadastrado com esse ISBN!");
         }
     }
 
