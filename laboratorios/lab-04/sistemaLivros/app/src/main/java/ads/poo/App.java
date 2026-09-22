@@ -59,6 +59,7 @@ public class App {
         System.out.print("Escolha uma opção: ");
         opcao = this.leitor.nextInt();
         this.leitor.nextLine();
+        System.out.println();
         return opcao;
     }
 
@@ -137,9 +138,11 @@ public class App {
         Livro livro = this.livros.get(isbn);
 
         if(livro != null){
-            System.out.println(livro.toString() + "\nQual desas opções > (TITULO, AUTOR ou ANO) deseja alterar?!");
-            String opcao = this.leitor.nextLine().toLowerCase();
+            String opcao = "";
+            System.out.println(livro);
             do {
+                System.out.println("Qual desas opções > (TITULO, AUTOR ou ANO) deseja alterar?!");
+                opcao = this.leitor.nextLine().toLowerCase();
                 switch (opcao){
                     case "titulo":
                         System.out.println("Qual será o novo TITULO do livro?");
@@ -165,14 +168,12 @@ public class App {
                         break;
                     default:
                         System.out.println("Opção inválida!");
+                        break;
                 }
                 System.out.println("Deseja continuar atualizando? (SIM - NAO)");
                 opcao = leitor.nextLine().toLowerCase();
-                if(opcao.equals("sim") || opcao.equals("s")){
-                    System.out.println("Qual desas opções > (TITULO, AUTOR ou ANO) deseja alterar?");
-                }
             }while (!(opcao.equals("nao") || opcao.equals("n")));
-            System.out.println("Livro atualizado com sucesso!\n" + livro.toString());
+            System.out.println("Livro atualizado com sucesso!\n" + livro);
         }else {
             System.out.println("Esse ISBN não existe!");
         }
@@ -190,16 +191,15 @@ public class App {
     }
 
     private void popularHash(){
-        Livro livro1 = new Livro("978-8535914849", "1984", "George Orwell", 1949);
-        Livro livro2 = new Livro("978-8535902778", "Dom Casmurro", "Machado de Assis", 1899);
-        Livro livro3 = new Livro("978-8501012074", "Cem Anos de Solidão", "Gabriel García Márquez", 1967);
-        Livro livro4 = new Livro("978-8595081536", "O Senhor dos Anéis: A Sociedade do Anel", "J.R.R. Tolkien", 1954);
-        Livro livro5 = new Livro("978-8508127394", "O Pequeno Príncipe", "Antoine de Saint-Exupéry", 1943);
+        Livro livro1 = new Livro("9788535914849", "1984", "George Orwell", 1949);
+        Livro livro2 = new Livro("9788535902778", "Dom Casmurro", "Machado de Assis", 1899);
+        Livro livro3 = new Livro("9788501012074", "Cem Anos de Solidão", "Gabriel García Márquez", 1967);
+        Livro livro4 = new Livro("9788595081536", "O Senhor dos Anéis: A Sociedade do Anel", "J.R.R. Tolkien", 1954);
+        Livro livro5 = new Livro("9788508127394", "O Pequeno Príncipe", "Antoine de Saint-Exupéry", 1943);
         this.livros.put(livro1.getIsbn(), livro1);
         this.livros.put(livro2.getIsbn(), livro2);
         this.livros.put(livro3.getIsbn(), livro3);
         this.livros.put(livro4.getIsbn(), livro4);
         this.livros.put(livro5.getIsbn(), livro5);
     }
-
 }
