@@ -22,6 +22,7 @@ tasks.run.configure{
 dependencies {
     // Use JUnit Jupiter for testing.
     testImplementation(libs.junit.jupiter)
+    implementation("net.datafaker:datafaker:2.7.0")
     implementation("com.google.zxing:core:3.5.4")
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")

@@ -1,5 +1,7 @@
 package ads.poo;
 
+import net.datafaker.Faker;
+
 import java.util.HashMap;
 import java.util.Scanner;
 
