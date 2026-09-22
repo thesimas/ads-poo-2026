@@ -15,9 +15,14 @@ repositories {
     mavenCentral()
 }
 
+tasks.run.configure{
+   standardInput = System.`in`
+}
+
 dependencies {
     // Use JUnit Jupiter for testing.
     testImplementation(libs.junit.jupiter)
+    implementation("com.google.zxing:core:3.5.4")
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
