@@ -19,6 +19,13 @@ classDiagram
         + desligarMotor(int indice)
     }
     
+    class ETipoAviao {
+        <<enumeration>>
+        MONOMOTOR,
+        BIMOTOR,
+        QUATROTURBINAS
+    }
+    
     class Motor {
         - ETipo tipo;
         - boolean status;
@@ -26,13 +33,15 @@ classDiagram
         + public Motor()
     }
     
-    class ETipo {
+    class ETipoMotor {
         <<enumeration>>
         PISTAO 
         TURBO,
         JATO
     }
+    
+    Aviao --> ETipoAviao
     Aviao *-->"1..8" Motor
-    Motor --> ETipo
+    Motor --> ETipoMotor
     
 ```

@@ -1,25 +1,32 @@
 package ads.poo;
 
 public class Motor {
-    private Etipo tipo;
+    private ETipoMotor tipo;
     private boolean status = false;
     private int rotacao = 0;
 
-    public Motor(Etipo tipo, boolean status, int rotacao) {
+    public Motor(ETipoMotor tipo, boolean status, int rotacao) {
         this.tipo = tipo;
         this.status = status;
         this.rotacao = rotacao;
     }
 
-    public Motor(Etipo tipo) {
+    public String formata(){
+        if(this.status){
+            return "Ligado";
+        }
+        return "Desligado";
+    }
+
+    public Motor(ETipoMotor tipo) {
         this.tipo = tipo;
     }
 
-    public Etipo getTipo() {
+    public ETipoMotor getTipo() {
         return tipo;
     }
 
-    public void setTipo(Etipo tipo) {
+    public void setTipo(ETipoMotor tipo) {
         this.tipo = tipo;
     }
 

@@ -1,6 +1,6 @@
 package ads.poo;
 
-public enum Etipo {
+public enum ETipoMotor {
     PISTAO,
     TURBO,
     JATO

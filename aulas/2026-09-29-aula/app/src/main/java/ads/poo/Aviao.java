@@ -7,37 +7,26 @@ public class Aviao {
     private int mxmPassageiros;
     private int mxmCombustivel;
     private ArrayList<Motor> motores = new ArrayList<>();
-    private boolean status;
+    private boolean status = false;
+    private ETipoAviao etipoAviao;
 
-    public Aviao(int mxmTripulantes, int mxmPassageiros, int mxmCombustivel, boolean status, Etipo tipo) {
+    public Aviao(int mxmTripulantes, int mxmPassageiros, int mxmCombustivel, ETipoAviao etipoAviao, ETipoMotor tipoMotor) {
         this.mxmTripulantes = mxmTripulantes;
         this.mxmPassageiros = mxmPassageiros;
         this.mxmCombustivel = mxmCombustivel;
-        this.status = status;
-        motores.add(new Motor(tipo));
-    }
 
-    public Aviao(int mxmTripulantes, int mxmPassageiros, int mxmCombustivel, boolean status) {
-        this.mxmTripulantes = mxmTripulantes;
-        this.mxmPassageiros = mxmPassageiros;
-        this.mxmCombustivel = mxmCombustivel;
-        this.status = status;
-    }
-
-    public boolean addMotor(Motor motor){
-        if(!this.motores.contains(motor)){
-            this.motores.add(motor);
-            return true;
+        if(etipoAviao.equals(ETipoAviao.MONOMOTOR)){
+            motores.add(new Motor(tipoMotor));
+        } else if (etipoAviao.equals(ETipoAviao.BIMOTOR)) {
+            for(int x = 0; x < 2; x++){
+                motores.add(new Motor(tipoMotor));
+            }
+        } else {
+            for(int x = 0; x < 4; x++){
+                motores.add(new Motor(tipoMotor));
+            }
         }
-        return false;
-    }
-
-    public boolean removeMotor(Motor motor){
-        if(this.motores.contains(motor)){
-            this.motores.remove(motor);
-            return true;
-        }
-        return false;
+        this.etipoAviao = etipoAviao;
     }
 
     public boolean ligarMotor(int indice){
@@ -119,13 +108,20 @@ public class Aviao {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Avião: \n");
+        sb.append("Tipo de Avião: ").append(etipoAviao).append("\n");
         sb.append("Maximo de tripulantes: ").append(mxmTripulantes).append("\n");
         sb.append("Maximo de Passageiros: ").append(mxmPassageiros).append("\n");
         sb.append("Máximo de Combústivel: ").append(mxmCombustivel).append("\n");
-        sb.append("Status: ").append(status);
+        sb.append("Status: ");
+        if(this.status){
+           sb.append("Ligado");
+        }else {
+            sb.append("Desligado");
+        }
+        sb.append("\n");
         if(!this.motores.isEmpty()){
             for (int x = 0; x < this.motores.size(); x++){
-                sb.append((x+1)).append("º").append(" - Status Motor - ").append(this.motores.get(x).isStatus()).append("\n");
+                sb.append((x+1)).append("º").append(" - Status Motor - ").append(this.motores.get(x).formata()).append("\n");
             }
         }
         return sb.toString();

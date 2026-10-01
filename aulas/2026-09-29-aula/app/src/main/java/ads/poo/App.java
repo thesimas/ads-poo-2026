@@ -6,6 +6,26 @@ package ads.poo;
 public class App {
 
     public static void main(String[] args) {
+        Aviao monomotor = new Aviao(1, 4, 500, ETipoAviao.MONOMOTOR, ETipoMotor.PISTAO);
+        System.out.println(monomotor.toString());
+        monomotor.partida();
+        System.out.println(monomotor.toString());
+
+        Aviao bimotor = new Aviao(2, 6, 750, ETipoAviao.BIMOTOR, ETipoMotor.TURBO);
+        bimotor.partida();
+        bimotor.desligarMotor(1);
+        System.out.println(bimotor.toString());
+
+        Aviao quatroTurbinas = new Aviao(6, 50, 2000, ETipoAviao.QUATROTURBINAS, ETipoMotor.JATO);
+        quatroTurbinas.partida();
+        quatroTurbinas.desligarMotor(2);
+        System.out.println(quatroTurbinas.toString());
+
+        Aluno aluno = new Aluno("Luciano", "luciano@email.com");
+
+        aluno.email();
+
+        IO.println(aluno);
 
     }
 }
