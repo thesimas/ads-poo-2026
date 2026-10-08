@@ -23,8 +23,13 @@
 - [2026-08-26 Aula - Menu de Cadastro de Pessoas e ArrayList](aulas/2026-08-26-aula/app/bin/main/ads/poo/App.class)
 - [2026-09-15 Aula - Java API Collections e Streams (ArrayList e Lambda)](aulas/2026-09-15-aula/app/bin/main/ads/poo/App.class)
 - [2026-09-16 Aula - Java API Collections 2 (HashMap e Lambda)](aulas/2026-09-16-aula/app/bin/main/ads/poo/App.class)
+- [2026-09-23 Aula - Diagrama de Classe com Mermaid e Associação de Classes](aulas/2026-09-23-aula/README.md)
+- [2026-09-29 Aula - Associação de classes - Composição](aulas/2026-09-29-aula/README.md)
+- [2026-09-30 Aula - Associação de Classes](aulas/2026-09-30-aula/README.md)
+- [2026-10-06 Aula - Prática de modelagem de diagrama de Classe](aulas/2026-10-06-aula/README.md)
 
 ## Laboratórios
 - [2026-08-11 Laboratório 02 - Revisão da Linguagem Java](laboratorios/lab-02/README.md)
 - [2026-09-01 Laboratório 03 - Prática com construtor, modificadores, sobrecarga, membros estáticos e finais](laboratorios/lab-03/README.md)
 - [2026-09-16 Laboratório 04 - Coleções](laboratorios/lab-04/sistemaLivros/README.md)
+- [2026-10-07 Laboratório 05 - Associação entre classes e diagrama de classes UML](laboratorios/lab-05/README.md)
