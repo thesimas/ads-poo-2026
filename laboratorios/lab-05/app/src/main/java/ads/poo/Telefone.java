@@ -43,7 +43,7 @@ public class Telefone {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        String mascara = (valor.length() == 11) ? "(##) # ####-####" : "(##) ####-####";
+        String mascara = (valor.length() == 11) ? "(##) # ####-####" : (valor.length() == 10) ? "(##) ####-####" : "# ####-####";
         sb.append("Número: ").append(formata(mascara, this.valor));
         return sb.toString();
     }

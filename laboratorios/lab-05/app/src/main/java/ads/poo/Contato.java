@@ -107,13 +107,13 @@ public class Contato {
         sb.append("Possui ").append(telefones.size()).append(" telefones:\n");
         int contator = 1;
         for (Telefone telefone : telefones.values()){
-            sb.append(contator).append("º telefone: ").append(telefone.getValor()).append("\n");
+            sb.append(contator).append("º telefone: ").append(telefone).append("\n");
             contator ++;
         }
         sb.append("Possui ").append(emails.size()).append(" emails:\n");
         contator = 1;
         for (Email email : emails.values()){
-            sb.append(contator).append("º Email: ").append(email.getValor()).append("\n");
+            sb.append(contator).append("º Email: ").append(email).append("\n");
             contator ++;
         }
         return sb.toString();
