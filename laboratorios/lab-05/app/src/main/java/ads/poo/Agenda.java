@@ -67,6 +67,33 @@ public class Agenda {
         return false;
     }
 
-    public boolean removeTelefone()
+    public boolean removeTelefone(String rotulo, int indice){
+        Contato contatoExistente = contatos.get(indice);
+        if(contatoExistente != null){
+            return contatoExistente.removeTelefone(rotulo);
+        }
+        return false;
+    }
 
+    public boolean removeEmail(String rotulo, int indice){
+        Contato contatoExistente = contatos.get(indice);
+        if(contatoExistente != null){
+            return contatoExistente.removeEmail(rotulo);
+        }
+        return false;
+    }
+
+    public ArrayList<Contato> getContatos() {
+        return contatos;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("------ Agenda ------");
+        sb.append("Lista de contatos:\n");
+        for (Contato contato : contatos){
+            sb.append(contato.toString());
+        }
+        return sb.toString();
+    }
 }
