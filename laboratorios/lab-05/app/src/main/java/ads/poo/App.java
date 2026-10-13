@@ -3,12 +3,104 @@
  */
 package ads.poo;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
 public class App {
+    private Scanner leia = new Scanner(System.in);
+    private Agenda agenda = new Agenda();
 
     public static void main(String[] args){
-        Telefone teste = new Telefone("48991670093");
-        System.out.println(teste.toString());
-        Email eTeste = new Email("luciano.simasjr@gmail.com");
-        System.out.println(eTeste.toString());
+        App app = new App();
+        while (true){
+            int opcao = app.menu();
+            switch (opcao){
+                case 1:
+                    if(app.cadastro()){
+                        System.out.println("Contato cadastrado com sucesso!");
+                    };
+                    break;
+                case 2:
+                    app.listar();
+                    break;
+                case 3:
+                    app.editar();
+                    break;
+                case 4:
+                    app.excluir();
+                    break;
+                case 5:
+                    System.out.println("Saindo...");
+                    break;
+                default:
+                    System.out.println("Opção inválida!");
+                    break;
+            }
+
+            if (opcao == 5) break;
+        }
+        System.out.println("Fim do programa...");
+        app.leia.close();
     }
+
+    public int menu(){
+        System.out.println("*".repeat(20) + "Menu Agenda" + "*".repeat(20));
+        System.out.println("Digite 1 - Cadastrar contato");
+        System.out.println("Digite 2 - Listar contato");
+        System.out.println("Digite 3 - Editar contato");
+        System.out.println("Digite 4 - Excluir contato");
+        System.out.println("Digite 5 - Sair");
+        System.out.println("Qual opção você irá escolher?");
+        return leia.nextInt();
+    }
+
+    public boolean cadastro(){
+        System.out.println("Qual é o nome do contato do contato?");
+        String nome = leia.nextLine();
+        System.out.println("Qual é o sobrenome do contato do contato?");
+        String sobrenome = leia.nextLine();
+        System.out.println("Qual é a data de nascimento do contato? (dd/mm/yyyy)");
+        String data = leia.nextLine();
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate dataFormatada = LocalDate.parse(data, formato);
+        Contato contato = new Contato(nome, sobrenome, dataFormatada);
+        System.out.println("Possui número de telefone? (Sim - Não)");
+        String flag = leia.nextLine().trim();
+        String rotulo = "";
+        if(flag.toLowerCase().startsWith("s")){
+            System.out.println("Qual é o rotulo do número de telefone?");
+            rotulo = leia.nextLine();
+            System.out.println("Qual é o número de telefone?");
+            String numero = leia.nextLine();
+            contato.addTelefone(rotulo, numero);
+            /*System.out.println("Deseja informar mais? (Sim - Não)");
+            flag = leia.nextLine().trim();
+            System.out.println("Quantos?");
+            int qnt = leia.nextInt();
+            if(qnt > 0){
+                for (int x = 1; x <= qnt; x ++){
+                    System.out.println("Qual é o " + (x+1) + "º número de telefone?");
+                    contato.addTelefone()
+                }
+            }*/
+        }
+        System.out.println("Possui email? (Sim - Não)");
+        flag = leia.nextLine().trim();
+        if(flag.toLowerCase().startsWith("s")){
+            System.out.println("Qual é o rotulo do email?");
+            rotulo = leia.nextLine();
+            System.out.println("Qual é o email?");
+            String email = leia.nextLine();
+            contato.addEmail(rotulo, email);
+        }
+        return agenda.addContato(contato);
+    }
+
+    public boolean listar(){}
+
+    public boolean editar(){}
+
+    public boolean excluir(){}
+
 }
