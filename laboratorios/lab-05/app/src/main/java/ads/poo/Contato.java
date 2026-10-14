@@ -100,20 +100,18 @@ public class Contato {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Informações do Contato:\n");
-        sb.append("Nome: ").append(nome).append("\n");
-        sb.append("Sobrenome: ").append(sobreNome).append("\n");
-        sb.append("Data de Nascimento: ").append(dataNascimento).append("\n");
-        sb.append("Possui ").append(telefones.size()).append(" telefones:\n");
+        final StringBuilder sb = new StringBuilder();
+        sb.append("\t").append("Nome: ").append(nome).append("\n");
+        sb.append("\t").append("Sobrenome: ").append(sobreNome).append("\n");
+        sb.append("\t").append("Data de Nascimento: ").append(dataNascimento).append("\n");
         int contator = 1;
         for (Telefone telefone : telefones.values()){
-            sb.append(contator).append("º telefone: ").append(telefone).append("\n");
+            sb.append("\t").append(contator).append("º telefone: ").append(telefone).append("\n");
             contator ++;
         }
-        sb.append("Possui ").append(emails.size()).append(" emails:\n");
         contator = 1;
         for (Email email : emails.values()){
-            sb.append(contator).append("º Email: ").append(email).append("\n");
+            sb.append("\t").append(contator).append("º Email: ").append(email).append("\n");
             contator ++;
         }
         return sb.toString();

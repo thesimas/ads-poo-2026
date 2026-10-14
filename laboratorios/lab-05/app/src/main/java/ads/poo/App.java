@@ -13,6 +13,7 @@ public class App {
 
     public static void main(String[] args){
         App app = new App();
+        app.popularAgenda();
         while (true){
             int opcao = app.menu();
             switch (opcao){
@@ -56,6 +57,7 @@ public class App {
     }
 
     public boolean cadastro(){
+        this.leia.nextLine();
         System.out.println("Qual é o nome do contato do contato?");
         String nome = leia.nextLine();
         System.out.println("Qual é o sobrenome do contato do contato?");
@@ -94,13 +96,97 @@ public class App {
             String email = leia.nextLine();
             contato.addEmail(rotulo, email);
         }
-        return agenda.addContato(contato);
+        return this.agenda.addContato(contato);
     }
 
-    public boolean listar(){}
+    public boolean listar(){
+        if(!this.agenda.getContatos().isEmpty()){
+            System.out.println(agenda);
+            return true;
+        }
+        return false;
+    }
 
-    public boolean editar(){}
+    public boolean editar(){
+        this.leia.nextLine();
+        int contador = 1;
+        for (Contato contato : agenda.getContatos()){
+            System.out.println(contador + "º contato: " + contato.getNome());
+            contador ++;
+        }
+        System.out.println("Qual contato você deseja Editar?");
+        int opcao = leia.nextInt();
+        leia.nextLine();
+        Contato contatoExistente = agenda.getContatos().get((opcao-1));
+        if(contatoExistente != null){
+            System.out.println("O que você deseja editar? (1 para Telefone ou 2 para Email)");
+            opcao = leia.nextInt();
+            leia.nextLine();
+            String rotulo = "";
+            String resultado = "";
+            switch (opcao){
+                case 1:
+                    System.out.println("Qual o rótulo do telefone que dejesa editar?");
+                    rotulo = leia.nextLine();
+                    System.out.println("Qual será o novo número para este " + rotulo + " ?");
+                    String numero = leia.nextLine();
+                    resultado = contatoExistente.updateTelefone(rotulo, numero) ? "Sucesso!" : "Falha!";
+                    System.out.println("Resultado da operação: " + resultado.toUpperCase());
+                    break;
+                case 2:
+                    System.out.println("Qual o rótulo do email que dejesa editar?");
+                    rotulo = leia.nextLine();
+                    System.out.println("Qual será o novo email para este " + rotulo + " ?");
+                    String email = leia.nextLine();
+                    resultado = contatoExistente.updateEmail(rotulo, email) ? "Sucesso!" : "Falha!";
+                    System.out.println("Resultado da operação: " + resultado.toUpperCase());
+                    break;
+                default:
+                    System.out.println("Opção inválida!");
+                    break;
+            }
+            return true;
+        }
+        return false;
+    }
 
-    public boolean excluir(){}
+    public boolean excluir(){
+        this.leia.nextLine();
+        int contador = 1;
+        for (Contato contato : agenda.getContatos()){
+            System.out.println(contador + "º contato: " + contato.getNome());
+            contador ++;
+        }
+        System.out.println("Qual contato você deseja excluir?");
+        int opcao = leia.nextInt();
+        leia.nextLine();
+        if(opcao > agenda.getContatos().size()){
+            System.out.println("Opção inválida!");
+            return false;
+        }
+        Contato contatoExistente = agenda.getContatos().get((opcao-1));
+        if(contatoExistente != null){
+            return agenda.getContatos().remove(contatoExistente);
+        }
+        return false;
+    }
 
+    private void popularAgenda(){
+        Contato contato1 = new Contato("Luciano", "Simas Junior", LocalDate.of(2000, 5, 19));
+        contato1.addTelefone("Celular", "48991670093");
+        contato1.addEmail("Pessoal", "luciano.simasjr@gmail.com");
+        contato1.addEmail("Institucional", "luciano@aluno.ifsc.edu.br");
+        agenda.addContato(contato1);
+
+        Contato contato2 = new Contato("Carlos", "Eduardo", LocalDate.of(1998, 10, 12));
+        contato2.addTelefone("Trabalho", "4833334444");
+        contato2.addTelefone("Celular", "48988887777");
+        contato2.addEmail("Profissional", "carlos.eduardo@empresa.com.br");
+        agenda.addContato(contato2);
+
+        Contato contato3 = new Contato("Mariana", "Costa", LocalDate.of(2002, 3, 25));
+        contato3.addTelefone("Casa", "4832221111");
+        contato3.addEmail("Pessoal", "mariana.costa@outlook.com");
+        agenda.addContato(contato3);
+    }
 }
