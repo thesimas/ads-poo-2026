@@ -26,7 +26,7 @@ public class Email {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        sb.append("Email: ").append(this.valor);
+        sb.append(this.valor);
         return sb.toString();
     }
 }

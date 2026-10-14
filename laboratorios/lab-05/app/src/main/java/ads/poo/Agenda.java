@@ -89,11 +89,14 @@ public class Agenda {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("------------ AGENDA ------------\n");
-        int contador = 1;
-        for (Contato contato : contatos){
-            sb.append(contador).append("° contato:\n").append(contato.toString()).append("\n");
-            contador ++;
+        final StringBuilder sb = new StringBuilder();
+        sb.append("°".repeat(15)).append(" Agenda ").append("°".repeat(15)).append("\n");
+        if(!contatos.isEmpty()){
+            int contador = 1;
+            for (Contato contato : contatos){
+                sb.append(contador).append("° contato:\n").append(contato.toString()).append("\n");
+                contador ++;
+            }
         }
         return sb.toString();
     }

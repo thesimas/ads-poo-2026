@@ -5,6 +5,7 @@ package ads.poo;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
@@ -20,44 +21,52 @@ public class App {
                 case 1:
                     if(app.cadastro()){
                         System.out.println("Contato cadastrado com sucesso!");
-                    };
+                    }
                     break;
                 case 2:
                     app.listar();
                     break;
                 case 3:
-                    app.editar();
+                    app.pesquisar();
                     break;
                 case 4:
-                    app.excluir();
+                    app.editar();
                     break;
                 case 5:
+                    app.excluir();
+                    break;
+                case 6:
                     System.out.println("Saindo...");
                     break;
                 default:
-                    System.out.println("Opção inválida!");
+                    System.out.println("Opção inválida! Digite um número entre 1 e 6.");
                     break;
             }
-
-            if (opcao == 5) break;
+            if (opcao == 6) break; // Sai do laço se for 6
         }
+
         System.out.println("Fim do programa...");
         app.leia.close();
     }
 
-    public int menu(){
-        System.out.println("*".repeat(20) + "Menu Agenda" + "*".repeat(20));
-        System.out.println("Digite 1 - Cadastrar contato");
-        System.out.println("Digite 2 - Listar contato");
-        System.out.println("Digite 3 - Editar contato");
-        System.out.println("Digite 4 - Excluir contato");
-        System.out.println("Digite 5 - Sair");
-        System.out.println("Qual opção você irá escolher?");
-        return leia.nextInt();
+    private int menu() {
+        System.out.println("\n" + "*".repeat(20) + " Menu Agenda " + "*".repeat(20));
+        System.out.println("1 - Cadastrar contato");
+        System.out.println("2 - Listar todos os contatos");
+        System.out.println("3 - Pesquisar contato");
+        System.out.println("4 - Editar contato");
+        System.out.println("5 - Excluir contato");
+        System.out.println("6 - Sair");
+        System.out.print("Qual opção você escolhe? ");
+
+        try {
+            return Integer.parseInt(leia.nextLine().trim());
+        } catch (NumberFormatException e) {
+            return -1;
+        }
     }
 
-    public boolean cadastro(){
-        this.leia.nextLine();
+    private boolean cadastro(){
         System.out.println("Qual é o nome do contato do contato?");
         String nome = leia.nextLine();
         System.out.println("Qual é o sobrenome do contato do contato?");
@@ -76,16 +85,6 @@ public class App {
             System.out.println("Qual é o número de telefone?");
             String numero = leia.nextLine();
             contato.addTelefone(rotulo, numero);
-            /*System.out.println("Deseja informar mais? (Sim - Não)");
-            flag = leia.nextLine().trim();
-            System.out.println("Quantos?");
-            int qnt = leia.nextInt();
-            if(qnt > 0){
-                for (int x = 1; x <= qnt; x ++){
-                    System.out.println("Qual é o " + (x+1) + "º número de telefone?");
-                    contato.addTelefone()
-                }
-            }*/
         }
         System.out.println("Possui email? (Sim - Não)");
         flag = leia.nextLine().trim();
@@ -99,7 +98,7 @@ public class App {
         return this.agenda.addContato(contato);
     }
 
-    public boolean listar(){
+    private boolean listar(){
         if(!this.agenda.getContatos().isEmpty()){
             System.out.println(agenda);
             return true;
@@ -107,21 +106,37 @@ public class App {
         return false;
     }
 
-    public boolean editar(){
-        this.leia.nextLine();
+    private boolean pesquisar() {
+        System.out.println("Qual o nome completo do contato que você deseja pesquisar?");
+        String nomeCompleto = leia.nextLine().trim();
+        String[] partes = nomeCompleto.split(" ", 2);
+        String nome = partes[0];
+        String sobrenome = partes[1];
+        ArrayList<Contato> contatos = this.agenda.findContato(nome, sobrenome);
+        if(!contatos.isEmpty()){
+            System.out.println("Contatos encontrados: ");
+            for(Contato contato: contatos){
+                System.out.println(contato);
+            }
+            return true;
+        }
+        System.out.println("Nenhum contato encontrado!");
+        return false;
+    }
+
+    private boolean editar(){
         int contador = 1;
         for (Contato contato : agenda.getContatos()){
             System.out.println(contador + "º contato: " + contato.getNome());
             contador ++;
         }
         System.out.println("Qual contato você deseja Editar?");
-        int opcao = leia.nextInt();
+        int opcao = Integer.parseInt(leia.nextLine());
         leia.nextLine();
         Contato contatoExistente = agenda.getContatos().get((opcao-1));
         if(contatoExistente != null){
             System.out.println("O que você deseja editar? (1 para Telefone ou 2 para Email)");
-            opcao = leia.nextInt();
-            leia.nextLine();
+            opcao = Integer.parseInt(leia.nextLine());
             String rotulo = "";
             String resultado = "";
             switch (opcao){
@@ -130,7 +145,7 @@ public class App {
                     rotulo = leia.nextLine();
                     System.out.println("Qual será o novo número para este " + rotulo + " ?");
                     String numero = leia.nextLine();
-                    resultado = contatoExistente.updateTelefone(rotulo, numero) ? "Sucesso!" : "Falha!";
+                    resultado = agenda.updateTelefone(rotulo, numero, opcao) ? "Sucesso!" : "Falha!";
                     System.out.println("Resultado da operação: " + resultado.toUpperCase());
                     break;
                 case 2:
@@ -150,23 +165,21 @@ public class App {
         return false;
     }
 
-    public boolean excluir(){
-        this.leia.nextLine();
+    private boolean excluir(){
         int contador = 1;
         for (Contato contato : agenda.getContatos()){
-            System.out.println(contador + "º contato: " + contato.getNome());
+            System.out.println(contador + "º contato: " + contato.getNome() + " " + contato.getSobreNome());
             contador ++;
         }
         System.out.println("Qual contato você deseja excluir?");
-        int opcao = leia.nextInt();
-        leia.nextLine();
+        int opcao = Integer.parseInt(leia.nextLine());
         if(opcao > agenda.getContatos().size()){
             System.out.println("Opção inválida!");
             return false;
         }
         Contato contatoExistente = agenda.getContatos().get((opcao-1));
         if(contatoExistente != null){
-            return agenda.getContatos().remove(contatoExistente);
+            return agenda.removeContato(opcao-1);
         }
         return false;
     }

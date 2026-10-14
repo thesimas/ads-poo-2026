@@ -1,6 +1,7 @@
 package ads.poo;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 
 public class Contato {
@@ -100,19 +101,20 @@ public class Contato {
 
     @Override
     public String toString() {
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         final StringBuilder sb = new StringBuilder();
-        sb.append("\t").append("Nome: ").append(nome).append("\n");
-        sb.append("\t").append("Sobrenome: ").append(sobreNome).append("\n");
-        sb.append("\t").append("Data de Nascimento: ").append(dataNascimento).append("\n");
-        int contator = 1;
-        for (Telefone telefone : telefones.values()){
-            sb.append("\t").append(contator).append("º telefone: ").append(telefone).append("\n");
-            contator ++;
+        sb.append("\t").append("Nome: ").append(nome).append(" ").append(sobreNome).append("\n");
+        sb.append("\t").append("Data de Nascimento: ").append(dataNascimento.format(formato)).append("\n");
+
+        if(!telefones.isEmpty()){
+            for(String rotulo : telefones.keySet()){
+                sb.append("\t[").append(rotulo).append("]: ").append(telefones.get(rotulo).toString()).append("\n");
+            }
         }
-        contator = 1;
-        for (Email email : emails.values()){
-            sb.append("\t").append(contator).append("º Email: ").append(email).append("\n");
-            contator ++;
+        if(!emails.isEmpty()){
+            for (String rotulo : emails.keySet()){
+                sb.append("\t[").append(rotulo).append("]: ").append(emails.get(rotulo).toString()).append("\n");
+            }
         }
         return sb.toString();
     }
