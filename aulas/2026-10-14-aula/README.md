@@ -8,7 +8,7 @@ classDiagram
         - modelo : String
         - peso : double
         - dimensao : Dimensao
-        + Telefone()
+        + Produto()
     }
     
     class Telefone {
@@ -32,10 +32,18 @@ classDiagram
         BOTAO,
         DISCO
     }
-        
+    
+    class Pager {
+        - numeroBotoes: int;
+    }
+
+    direction LR
     
     Produto *--> Dimensao
     Produto <|-- Telefone
     Telefone <|-- SemFio
     Telefone --> ETipo
+    Produto <|-- Pager
 ```
+
+
