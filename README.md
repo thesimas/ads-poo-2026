@@ -27,7 +27,8 @@
 - [2026-09-29 Aula - Associação de classes - Composição](aulas/2026-09-29-aula/README.md)
 - [2026-09-30 Aula - Associação de Classes](aulas/2026-09-30-aula/README.md)
 - [2026-10-06 Aula - Prática de modelagem de diagrama de Classe](aulas/2026-10-06-aula/README.md)
-
+- [2026-10-14 Aula - Herança](aulas/2026-10-14-aula/app/src/main/java/ads/poo)
+- [2026-10-20 Aula - Herança e Diagramas de Classes](aulas/2026-10-20-aula/README.md)
 ## Laboratórios
 - [2026-08-11 Laboratório 02 - Revisão da Linguagem Java](laboratorios/lab-02/README.md)
 - [2026-09-01 Laboratório 03 - Prática com construtor, modificadores, sobrecarga, membros estáticos e finais](laboratorios/lab-03/README.md)
