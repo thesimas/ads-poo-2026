@@ -1,4 +1,4 @@
-# Exericicios de diagrama de classes - Herança
+# Exercicios de diagrama de classes - Herança
 
 ## Diagramas para um Sistema de Informação: 
 
@@ -107,21 +107,46 @@ classDiagram
 classDiagram
     class Transporte {
         <<abstract>>
-        - numTripulantes : int
-        + desembargar(Tripulante tripulante) boolean
+        - gasolinaMxm : int
+        + ativarNitro() boolean
+        + acelerar() boolean
+        + frear() boolean
     }
     
     class Areo {
-        - alturaMaxima : int
+        - altitudeMaxima : int
+        + aumentarAltitude() boolean
     }
     
-    class Terrestre {}
+    class Terrestre {
+        - qntMarchas : int
+        + passarMarchar() boolean
+    }
         
     class Maritimo {
-        
+        - nivelProfundidade : int
+        + ultrapassarOnda() boolean
     }
     
     class Carro {
-        
+        - velocidadeMxm : int
+        + fazerDrift() boolean
     }
+
+    class Aviao {
+        - nivelDeGelo: int
+        + darRazante() boolean
+    }
+
+    class Barco {
+        - tipoMastro : EMastro
+        + ultrapassarOnda() boolean
+    }
+
+    Transporte <|-- Areo
+    Transporte <|-- Terrestre
+    Transporte <|-- Maritimo
+    Terrestre <|-- Carro
+    Areo <|-- Aviao
+    Maritimo <|-- Barco
 ```
