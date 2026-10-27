@@ -14,9 +14,34 @@ classDiagram
     class Geometrica {
         <<abstract>>
         - cor : String
-        - raio : double
+        - coordenadaInicial : Coordenada
         + desenhar() String
     }
-
+    
+    class Linha {
+        - coordenadaFinal : Coordenada
+    }
+    
+    class FormaPlana {
+        - base : int
+        - altura : int
+        + calcularArea() int
+        + calcularPerimetro() int
+    }
+    
+    class Circulo {
+        - raio : double
+    }
+    
+    class Retangulo {
+        - coordenadaFinal : Coordenada
+    }
+    
     Geometrica --> Coordenada
+    Geometrica <|-- FormaPlana
+    FormaPlana <|-- Circulo
+    Geometrica <|-- Linha
+    FormaPlana <|-- Retangulo 
+    Linha --> Coordenada
+    Retangulo --> Coordenada
 ````

@@ -4,11 +4,9 @@
 package ads.poo;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        Geometrica linha = new Linha("Azul", new Coordenada(3, 5), new Coordenada(5, 9));
+        System.out.println(linha.desenhar());
     }
 }

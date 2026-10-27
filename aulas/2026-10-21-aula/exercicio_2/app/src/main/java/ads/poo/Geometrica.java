@@ -2,20 +2,14 @@ package ads.poo;
 
 public abstract class Geometrica {
     private String cor;
-    private Coordenada coordenadas;
-    private double raio;
+    private Coordenada coordenadaInicial;
 
-    public Geometrica(String cor, Coordenada coordenadas, double raio) {
+    public Geometrica(String cor, Coordenada coordenadaInicial) {
         this.cor = cor;
-        this.coordenadas = coordenadas;
-        this.raio = raio;
+        this.coordenadaInicial = coordenadaInicial;
     }
 
-    public StringBuilder desenhar(){
-        StringBuilder sb = new StringBuilder();
-        sb.append("Cor da linha: ").append(cor).append("\n");
-        sb.append("Raio: ").append()
-    }
+    public abstract String desenhar();
 
     public String getCor() {
         return cor;
@@ -26,18 +20,18 @@ public abstract class Geometrica {
     }
 
     public Coordenada getCoordenadas() {
-        return coordenadas;
+        return coordenadaInicial;
     }
 
     public void setCoordenadas(Coordenada coordenadas) {
-        this.coordenadas = coordenadas;
+        this.coordenadaInicial = coordenadas;
     }
 
-    public double getRaio() {
-        return raio;
-    }
-
-    public void setRaio(double raio) {
-        this.raio = raio;
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder();
+        sb.append("com a cor ").append(cor).append('\n');
+        sb.append("Coordenada Inicial: [").append(coordenadaInicial.getX()).append(" , ").append(coordenadaInicial.getY()).append("]");
+        return sb.toString();
     }
 }
