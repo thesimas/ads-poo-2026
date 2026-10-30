@@ -12,7 +12,7 @@ public class Retangulo {
 
     public Retangulo(int largura, int altura, String codificacao) {
         this.largura = largura <= 0 ? 4 : largura;
-        this.altura = altura <= 0 ? 4 : altura;
+        this.altura = altura <= 0 ? 3 : altura;
         this.codificacao = codificacao.toLowerCase();
         this.ascii = this.codificacao.equals("utf8") ? false : true;
     }
