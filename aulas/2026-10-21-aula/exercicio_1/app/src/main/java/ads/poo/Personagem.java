@@ -11,17 +11,7 @@ public abstract class Personagem {
         this.velocidade = velocidade;
     }
 
-    public StringBuilder mover(){
-        StringBuilder sb = new StringBuilder();
-        sb.append("O Personagem está se movendo com velocidade de ").append(this.getVelocidade());
-        return sb;
-    }
-
-    public StringBuilder atacar(){
-        StringBuilder sb = new StringBuilder();
-        sb.append("O Personagem está atacando com força de ataque").append(this.getAtaque());
-        return sb;
-    }
+    public abstract String mover();
 
     public int getVida() {
         return vida;

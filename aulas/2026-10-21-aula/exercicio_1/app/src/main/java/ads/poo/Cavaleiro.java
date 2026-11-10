@@ -1,6 +1,6 @@
 package ads.poo;
 
-public class Cavaleiro extends Personagem{
+public class Cavaleiro extends Personagem implements Guerreiro{
     private ETipoCavalo cavalo;
 
     public Cavaleiro(ETipoCavalo cavalo) {
@@ -9,17 +9,17 @@ public class Cavaleiro extends Personagem{
     }
 
     @Override
-    public StringBuilder mover() {
+    public String mover() {
         StringBuilder sb = new StringBuilder();
         sb.append("O Cavaleiro está se movendo com velocidade de ").append(super.getVelocidade());
-        return sb;
+        return sb.toString();
     }
 
     @Override
-    public StringBuilder atacar() {
+    public String atacar() {
         StringBuilder sb = new StringBuilder();
         sb.append("O Cavaleiro está atacando com força de ataque ").append(super.getAtaque());
-        return sb;
+        return sb.toString();
     }
 
     public ETipoCavalo getCavalo() {
@@ -34,7 +34,7 @@ public class Cavaleiro extends Personagem{
     public String toString() {
         final StringBuilder sb = new StringBuilder();
         sb.append(super.toString());
-        sb.append("Cavalo").append(cavalo).append("\n");
+        sb.append("Cavalo: ").append(cavalo).append("\n");
         return sb.toString();
     }
 }

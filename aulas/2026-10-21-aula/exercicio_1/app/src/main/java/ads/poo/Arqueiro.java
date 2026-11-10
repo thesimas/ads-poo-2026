@@ -1,6 +1,6 @@
 package ads.poo;
 
-public class Arqueiro extends Personagem{
+public class Arqueiro extends Personagem implements Guerreiro{
     private int numeroFlechas;
 
     public Arqueiro() {
@@ -9,17 +9,17 @@ public class Arqueiro extends Personagem{
     }
 
     @Override
-    public StringBuilder mover(){
+    public String mover(){
         StringBuilder sb = new StringBuilder();
         sb.append("O Arqueiro está se movendo com velocidade de ").append(super.getVelocidade());
-        return sb;
+        return sb.toString();
     }
 
     @Override
-    public StringBuilder atacar(){
+    public String atacar(){
         StringBuilder sb = new StringBuilder();
         sb.append("O Arqueiro está atacando com força de ataque ").append(super.getAtaque());
-        return sb;
+        return sb.toString();
     }
 
     public int getNumeroFlechas() {

@@ -1,6 +1,6 @@
 package ads.poo;
 
-public class Aldeao extends Personagem{
+public class Aldeao extends Personagem implements Guerreiro, Coletor{
     private int velocidadeColheita;
 
     public Aldeao() {
@@ -9,17 +9,27 @@ public class Aldeao extends Personagem{
     }
 
     @Override
-    public StringBuilder mover(){
-        StringBuilder sb = new StringBuilder();
-        sb.append("O Aldeão está se movendo com velocidade de ").append(super.getVelocidade());
-        return sb;
+    public String coletarMadeira() {
+        return "Aldeão coletando madeira!";
     }
 
     @Override
-    public StringBuilder atacar(){
+    public String coletarOuro() {
+        return "Aldeão coletando Ouro!";
+    }
+
+    @Override
+    public String mover(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("O Aldeão está se movendo com velocidade de ").append(super.getVelocidade());
+        return sb.toString();
+    }
+
+    @Override
+    public String atacar(){
         StringBuilder sb = new StringBuilder();
         sb.append("O Aldeão está atacando com força de ataque ").append(super.getAtaque());
-        return sb;
+        return sb.toString();
     }
 
     public int getVelocidadeColheita() {
