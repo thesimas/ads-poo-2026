@@ -15,7 +15,7 @@ public class Baleia extends Maritimo {
 
     @Override
     public String expressar() {
-        return "A Baleia está zurrando!";
+        return "A Baleia está cantando!";
     }
 
     @Override

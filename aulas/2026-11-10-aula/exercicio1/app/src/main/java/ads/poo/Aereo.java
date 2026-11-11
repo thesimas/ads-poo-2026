@@ -1,7 +1,7 @@
 package ads.poo;
 
-public abstract class Areo extends Animal{
-    public Areo(int peso, String nome) {
+public abstract class Aereo extends Animal{
+    public Aereo(int peso, String nome) {
         super(peso, nome);
     }
 
