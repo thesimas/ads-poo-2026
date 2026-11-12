@@ -28,8 +28,8 @@ classDiagram
     
     class Tracao {
         <<interface>>
-        + ativar() boolean
-        + desativar() boolean
+        + ativarTracao() boolean
+        + desativarTracao() boolean
     }
     
     class FerrariPortofino {
