@@ -79,10 +79,12 @@ public class FerrariPortofino extends Veiculo implements Conversivel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("FerrariPortofino{");
-        sb.append("estabilidade=").append(estabilidade);
-        sb.append(", capota=").append(capota);
-        sb.append('}');
+        final StringBuilder sb = new StringBuilder("Veículo - Ferrari Portofino");
+        sb.append(super.toString());
+        String txtEstabilidade = estabilidade ? "Ativada" : "Desativada";
+        sb.append("Estabilidade: ").append(txtEstabilidade).append("\n");
+        String txtCapota = capota ? "Aberta" : "Fechada";
+        sb.append("Capota: ").append(txtCapota).append("\n");
         return sb.toString();
     }
 }

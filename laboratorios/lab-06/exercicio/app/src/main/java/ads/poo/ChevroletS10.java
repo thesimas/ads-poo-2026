@@ -86,4 +86,16 @@ public class ChevroletS10 extends Veiculo implements Tracao{
     public void setTracao(boolean tracao) {
         this.tracao = tracao;
     }
+
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Veículo - Chevrolet S10");
+        sb.append(super.toString());
+        String txtCacamba = cacamba ? "Aberta" : "Fechada";
+        sb.append("Caçamba: ").append(txtCacamba).append("\n");
+        String txtTracao = tracao ? "Ativada" : "Desativada";
+        sb.append("Tração: ").append(txtTracao).append("\n");
+        return sb.toString();
+    }
 }
