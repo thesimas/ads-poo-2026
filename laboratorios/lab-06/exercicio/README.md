@@ -50,12 +50,19 @@ classDiagram
     
     class WaterCarPanther {
         - tracao : boolean
-        - lastro : boolean
         - rodas : boolean
         - capota : boolean
         - miniGeladeira : int
-        + aumentarTemperatura() boolean
-        + diminuirTemperatura() boolean
+        - capacidadeLastro : int
+        - capacidadeMxmLastro : int
+        + definirTemperatura() boolean
+    }
+    
+    class EModelo {
+        <<enumeration>>
+        PEQUENO,
+        MEDIO,
+        GRANDE
     }
     
     Veiculo <|-- FerrariPortofino
@@ -66,6 +73,7 @@ classDiagram
     
     ChevroletS10 ..|> Tracao
     
+    WaterCarPanther o--> EModelo
     WaterCarPanther ..|> Anfibio
     WaterCarPanther ..|> Conversivel
     WaterCarPanther ..|> Tracao

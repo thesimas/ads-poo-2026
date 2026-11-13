@@ -15,6 +15,9 @@ public class App {
         Veiculo ferrari = new FerrariPortofino();
         veiculos.add(ferrari);
 
+        Veiculo waterCar = new WaterCarPanther(EModelo.MEDIO);
+        veiculos.add(waterCar);
+
         for(Veiculo veiculo : veiculos){
             System.out.println(veiculo);
         }
